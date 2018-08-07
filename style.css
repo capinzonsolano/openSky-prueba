@@ -18,3 +18,7 @@ body {
 .frm {
   visibility: hidden;
 }
+
+.imgProceso {
+  overflow-x: scroll;
+}
