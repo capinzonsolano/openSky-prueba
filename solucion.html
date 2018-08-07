@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Solución prueba técnica</title>
+  <!-- BootstrapCDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Page wrap-->
+  <main class="content">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="./index.html">OpenSky</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./proceso.html">Proceso</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./solucion.html">Solución</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Navigation -->
+
+    <!-- This page content -->
+    <div class="container">
+      <div class="row py-4">
+        <h1 class="text-center m-auto">Solución para la prueba técnica</h1>
+      </div>
+      <div class="row pb-4">
+        <!-- Inicio de sesión -->
+        <div class="col-md-4 border py-3">
+          <h5 class="text-center">Simulación de inicio de sesión</h5>
+          <form>
+            <div class="form-group">
+              <label for="contratistaInputName">Nombre contratista</label>
+              <input type="text" class="form-control" id="contratistaInputName" placeholder="Ingresa tu nombre (contratista)" required>
+            </div>
+            <div class="form-group">
+              <label for="contratistaInputEmail">Email contratista</label>
+              <input type="email" class="form-control" id="contratistaInputEmail" aria-describedby="emailHelp" placeholder="Ingresa un email" required>
+              <small id="emailHelp" class="form-text text-muted">Este email será tenido en cuenta para el envío de las notificaciones</small>
+            </div>
+            <button id="btnIniciarSesion" type="submit" class="btn btn-primary">Iniciar sesión</button>
+          </form>
+        </div>
+        <!-- End inicio de sesión -->
+
+        <!-- Formulario de cobro -->
+        <div class="col-md-4 border py-3">
+          <form class="d-none" id="frmCobro">
+            <h5 class="text-center">Formulario de cobro</h5>
+            <div class="d-flex justify-content-around align-items-center mb-2">
+              <label for="inpConsecutivo">Solicitud número:</label>
+              <input class="form-control w-25" type="text" id="inpConsecutivo" name="inpConsecutivo" disabled>
+            </div>
+            <div class="form-group d-flex flex-wrap flex-lg-nowrap">
+              <div>
+                <label for="inpFecha">Fecha</label>
+                <input class="form-control" type="date" id="inpFecha" name="inpFecha" disabled>
+              </div>
+              <div>
+                <label for="inpHora">Hora</label>
+                <input class="form-control" type="time" id="inpHora" name="inpHora" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inpNombre">Nombre</label>
+              <input class="form-control" type="text" id="inpNombre" name="inpNombre" disabled>
+            </div>
+            <div class="form-group">
+              <label for="inpEmail">Email</label>
+              <input class="form-control" type="text" id="inpEmail" name="inpEmail" disabled>
+            </div>
+            <div class="form-group">
+              <label for="textAConcepto">Concepto</label>
+              <textarea class="form-control" rows="5" id="textAConcepto" placeholder="Ingrese el concepto del cobro" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="inpValor">Valor</label>
+              <input class="form-control" type="number" id="inpValor" name="inpValor" placeholder="Valor del cobro" required>
+            </div>
+            <div class="form-group">
+              <label for="inpFileDocs">Documentos anexos</label>
+              <input type="file" class="form-control-file" id="inpFileDocs">
+            </div>
+            <button id="btnIniciarCobro" type="submit" class="btn btn-primary">Iniciar cobro</button>
+          </form>
+        </div>
+        <!-- End formulario de cobro -->
+
+        <div class="col-md-4 border py-3">
+
+          <!-- Gerente financiero -->
+          <div class="pb-3 mb-3 border-bottom d-none" id="frmGerente">
+            <h5 class="text-center">Gerente Financiero</h5>
+            <form>
+              <div class="form-group">
+                <small id="spanMensajeGerente" class="form-text text-muted mb-2"></small>
+                <button id="btnGerenteAceptar" type="button" class="btn btn-success">Aceptar solicitud</button>
+              </div>
+              <div class="form-group">
+                <label for="textAModificaciones">Modificaciones</label>
+                <textarea class="form-control" rows="5" id="textAModificaciones" placeholder="Ingrese el concepto del cobro" required></textarea>
+              </div>
+              <button id="btnGerenteRechazar" type="submit" class="btn btn-danger">Rechazar solicitud</button>
+            </form>
+          </div>
+          <!-- End Gerente financiero -->
+
+          <!-- Asistente financiero -->
+          <div class="pb-3 d-none" id="frmAsistente">
+            <h5 class="text-center">Asistente Financiero</h5>
+            <small id="spanMensajeAsistente" class="form-text text-muted mb-2"></small>
+            <form>
+              <div class="form-group">
+                <label for="inpFechaPago">Fecha de pago</label>
+                <input class="form-control" type="date" id="inpFechaPago" name="inpFechaPago" min="2018-01-01" required>
+              </div>
+              <button id="btnProgramarPago" type="submit" class="btn btn-primary">Programar pago</button>
+            </form>
+          </div>
+          <!-- End Asistente financiero -->
+
+        </div>
+      </div>
+    </div>
+    <!-- End this page content -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="emailModalLabel">Simulación email</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="emailModalContent">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->
+
+  </main>
+  <!-- End page wrap -->
+
+  <!-- Footer -->
+  <nav class="footer navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul class="navbar-nav m-auto">
+      <li class="nav-item">
+        <a class="nav-link">Sitio hecho por Carlos Pinzón</a>
+      </li>
+  </nav>
+  <!-- End footer -->
+
+  <!-- Bootstrap Scripts  -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- End Bootstrap Scripts  -->
+
+  <!-- Local script -->
+  <script src="./solucion.js"></script>
+  <!-- End Local script -->
+</body>
+
+</html>
